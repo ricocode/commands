@@ -1,0 +1,120 @@
+--------------------
+ruby -v
+gem install rails -v 5.2.3
+rails _5.2.3_ new "" -d postgresql
+cd ""
+rails db:create
+rails s
+http://localhost:3000/
+ControlキーとCキーを同時押し
+--------------------
+
+rails generate controller "" = rails g controller ""
+rails d controller blogs
+rails g controller "" "index" ←　indexはオプション
+routers.rb　の設定をする
+""_controller.rb の設定をする
+app/views/""/"".html.erb の設定をする
+rails s
+
+--------------------
+github commands
+https://qiita.com/konweb/items/621722f67fdd8f86a017
+
+$ ssh-keygenで公開鍵を作成
+Enter passphraseと表示され、パスフレーズの入力を2回求められるので同じパスフレーズを入力する。
+
+$ cat ~/.ssh/id_rsa.pubで公開鍵を確認
+
+Add SSH key
+
+$ git init
+
+$ git remote add origin git@github.com:foo/bar.git
+
+$ git add -A
+
+$ git commit -m "メッセージ #イシュー番号"
+
+$ git push origin master
+
+
+
+
+
+config/database.yml  で＃コメントを削除　※消さなくていい場合もある
+rails g migration マイグレーションファイル名　※例；rails g migration CreateBlogs
+
+以下　目的例	命名
+例 blogsテーブルを作成する場合	CreateBlogs
+例 blogsテーブルを削除する場合	DropBlogs
+例 blogsテーブルにtitleカラムを追加する場合	AddTitleToBlogs
+例 blogsテーブルに複数のカラムを追加する場合	AddColumnsToBlogs
+例 blogsテーブルからtitleカラムを削除する場合	RemoveTitleFromBlogs
+例 blogsテーブルから複数のカラムを削除する場合	RemoveColumnsFromBlogs
+例 blogsテーブルのtitleカラムの名前をcontentに変更する場合	RenameFromTitleToContentOnBlogs
+例 blogsテーブルにtitleカラムのindexを追加する場合	AddIndexTitleToBlogs
+例 blogsテーブルに複数のカラムのindexを追加する場合	AddIndexesToBlogs
+
+※削除する場合　　rails d migration CreateBlogs
+
+
+※マイグレーションファイルの記述方法
+公式；https://api.rubyonrails.org/classes/ActiveRecord/Migration.html
+テキスト；https://client.diveintocode.jp/curriculums/440
+
+sudo service postgresql start
+brew services start postgresql
+brew services restart postgresql
+rails db:migrate
+→schema.rbに書き込まれる
+※rails db:rollback
+※schema.rbに書き込まれる
+
+※rails g migrationは、マイグレーションファイルというRubyのファイルを作成するコマンドです。
+※rails db:migrateは、新しく作成されたマイグレーションファイルを読み取って、そこに記述されている命令（「新しいテーブルを作ってください」などの命令）を、DBに対して行うコマンドです。
+
+-------------------------------------
+
+rails g model モデル名
+※マイグレーションファイルの作成を飛ばす場合　rails g model モデル名　--skip
+
+app/models/application_record.rb　を確認する
+
+--------------------------------------
+※テーブル操作 rails console
+
+rails c
+
+例；
+create
+:001 > Blog.create(title: "Hello!", content: "Today is ...")
+
+all
+:002 > Blog.all
+
+new
+:006 > blog = Blog.new(title: "I’m fine.", content: "How’s it going?")
+
+save
+:007 > blog.save
+
+--------------------------------------
+※実装
+
+Routing ルーティングを作成
+config/routes.rb　"resources :blogs"
+※rails routes で確認する
+
+Controller アクションを定義
+app/controllers/""_controller.rb
+
+Viewの作成
+""/new.html.erb
+
+サーバを起動し、確認する
+rails s
+
+※https://client.diveintocode.jp/curriculums/444
+以降を確認
+
