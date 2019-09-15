@@ -1,3 +1,7 @@
+linux commands
+https://eng-entrance.com/linux-command-cd
+
+
 --------------------
 ruby -v
 gem install rails -v 5.2.3
@@ -38,9 +42,7 @@ $ git commit -m "メッセージ #イシュー番号"
 
 $ git push origin master
 
-
-
-
+---------
 
 config/database.yml  で＃コメントを削除　※消さなくていい場合もある
 rails g migration マイグレーションファイル名　※例；rails g migration CreateBlogs
@@ -118,3 +120,5 @@ rails s
 ※https://client.diveintocode.jp/curriculums/444
 以降を確認
 
+
+User.create(name: "abenoriko", email: "noriko@dic.com", password: "norinori", password_confirmation: "norinori")
